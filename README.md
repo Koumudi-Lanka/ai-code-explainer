@@ -30,15 +30,15 @@
 4. Managed version control with **Git** and hosted the project on **GitHub**.  
 
 ---
-
 ## 🔹 Project Structure
 
 AI-CODE-EXPLAINER/
 │
-├── app.py                 # Main Python script to run the AI Code Explainer
-├── requirements.txt       # Python packages needed for the project
-├── README.md              # This project documentation
-└── .gitignore             # To ignore venv and other unnecessary files
+├── app.py             # Main Python script to run the AI Code Explainer
+├── requirements.txt   # Python packages needed for the project
+├── README.md          # This project documentation
+└── .gitignore         # To ignore venv and other unnecessary files
+
 
 ## 🔹 How to Run the Project
 
