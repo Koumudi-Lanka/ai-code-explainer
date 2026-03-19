@@ -1,7 +1,5 @@
 import gradio as gr
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-import io
-import sys
 
 # Load Salesforce CodeT5 model
 model_name = "Salesforce/codet5-base"
@@ -28,22 +26,10 @@ Code:
 
     explanation = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-    # Capture real program output
-    old_stdout = sys.stdout
-    sys.stdout = io.StringIO()
+    #  Disabled execution for safety  
+    output = "Execution disabled for safety"
 
-    try:
-        exec(code)
-        output = sys.stdout.getvalue()
-    except Exception as e:
-        output = str(e)
-
-    sys.stdout = old_stdout
-
-    if output.strip() == "":
-        output = "No printed output."
-
-    return explanation, output
+    return explanation, output  
 
 
 interface = gr.Interface(
@@ -54,7 +40,7 @@ interface = gr.Interface(
         gr.Textbox(label="Program Output")
     ],
     title="AI Code Explainer (CodeT5)",
-    description="Paste Python code. The AI explains it and the program executes to show the real output."
+    description="Paste Python code. The AI explains it in simple English. (Execution disabled for safety)"
 )
 
 interface.launch()
